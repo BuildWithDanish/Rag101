@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping()
-public class OllamaController {
+public class GeminiController {
 
     ChatClient client;
 
-    public OllamaController(ChatModel chatModel) {
+    public GeminiController(ChatModel chatModel) {
         this.client = ChatClient.builder(chatModel).build();
     }
 
     @GetMapping("/chat")
     public String chat() {
-        return client.prompt("How are you").call().content();
+        return client.prompt("which model you are").call().content();
     }
 }
